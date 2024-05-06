@@ -1,12 +1,35 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.scss'
 import { BasicButton } from './components/buttons/basic-button'
 
 function App() {
-
   const [count, setCount] = useState(0)
+
+  const [name, setName] = useState('')
+
+  const li = [
+    1,
+    2,
+    3,
+    4,
+  ]
+
+  console.log(li)
+
+  const changeName = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setName(() => e.target.value)
+  }
+
+  useEffect(() => {
+    console.log(name)
+  }, [name])
+
+  useEffect(() => {
+    console.log(count)
+  }, [count])
+
   return (
     <>
       <BasicButton></BasicButton>
@@ -19,6 +42,7 @@ function App() {
         </a>
       </div>
       <h1>Vite + React</h1>
+      <input value={name} onChange={e => changeName(e)} className="customed-input" type="text" />
       <div className="card">
         <button onClick={() => setCount(count => count + 1)}>
           count is
