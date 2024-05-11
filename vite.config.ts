@@ -1,11 +1,10 @@
-import path, { resolve } from 'node:path'
+import { resolve } from 'node:path'
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import generouted from '@generouted/react-router/plugin'
 
 export default defineConfig({
   base: './',
-  root: path.join(__dirname, 'src'),
 
   plugins: [react(), generouted()],
 
