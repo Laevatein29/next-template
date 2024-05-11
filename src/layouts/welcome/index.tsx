@@ -1,9 +1,9 @@
 import { Outlet } from 'react-router'
 
-export default function DefaultLayout() {
+export default function WelcomeLayout() {
   return (
     <div>
-      <div>defaylt</div>
+      <div>wel</div>
       <Outlet />
     </div>
   )

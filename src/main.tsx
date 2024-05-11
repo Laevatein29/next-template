@@ -1,9 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
-
+import { Routes } from '@generouted/react-router'
+// import Routes from './router'
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <App />
+    <Routes></Routes>
   </React.StrictMode>,
 )
