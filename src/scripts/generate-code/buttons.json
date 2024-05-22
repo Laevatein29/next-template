@@ -1,0 +1,1 @@
+{"basic-button":"import { useState } from 'react'\nimport style from './index.module.scss'\n\nexport default function BasicButton() {\n  const [state, setState] = useState(0)\n\n  return (\n    <div className={style.container}>\n      {state}\n      <button type=\"button\" onClick={() => setState(state => state + 1)}>test</button>\n    </div>\n  )\n}\n"}
