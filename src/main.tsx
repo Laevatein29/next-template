@@ -12,7 +12,6 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     <Routes></Routes>
   </React.StrictMode>,
 )
-
 // INFO: use following code to build app without hash router
 //
 // import React from 'react'

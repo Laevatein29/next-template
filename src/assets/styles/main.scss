@@ -1,3 +1,4 @@
+@use "sass:color";
 @import "./_mixin.scss";
 @import "./_variables.scss";
 
@@ -35,30 +36,12 @@ body {
 
 * {
 
-  // [data-theme='dark'] {
-  //   --color-pr: #fff;
-  // }
-  //
-  // [data-theme='light'] {
-  //   --color-pr: #000;
-  // }
-
-  $color-pr: var(--color-pr);
-
-  @function colorGenerator($origin, $basic, $percent) {
-    @return mix($origin, $basic, ($percent ));
-  }
-
-  @function getPrimary($percent) {
-    @return colorGenerator(#000, var(--color-pr), $percent)
-  }
-
-
   box-sizing: border-box;
   scroll-behavior: smooth;
   scrollbar-width: thin;
   scrollbar-color: rgba(255, 255, 255, 0.111) transparent;
   box-sizing: border-box;
+
 
   &::-webkit-scrollbar {
     width: 5px;

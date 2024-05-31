@@ -1,7 +1,9 @@
 import { Outlet } from 'react-router'
 import { useContext } from 'react'
+import { ColorPicker, useColor } from 'react-color-palette'
 import style from './index.module.scss'
 import Header from '@/blocks/login/header'
+import 'react-color-palette/css'
 import { ThemeContext } from '@/contexts/theme-context'
 
 export default function LoginLayout() {
@@ -11,12 +13,7 @@ export default function LoginLayout() {
 
   const { theme, setTheme } = useContext(ThemeContext)
 
-  console.log('theme', theme)
-
-  const handleCus = () => {
-    setTheme('cus')
-    console.log('theme', theme)
-  }
+  const [color, setColor] = useColor('rbg(86 30 202)')
 
   const handleTheme = () => {
     const isCurrentDark = theme === 'dark'
@@ -25,19 +22,32 @@ export default function LoginLayout() {
     console.log('theme', theme)
   }
 
+  const handleCus = (e: any) => {
+    console.log('color', color)
+    setColor(e)
+    setTheme(e.hex)
+  }
+
   return (
     <div className={`${style.container} container`}>
-      {theme}
       <header onClick={handleHeaderClick} id="header" className={style.header}>
         <Header />
       </header>
       <button onClick={handleTheme}>theme</button>
-      <button onClick={handleCus}>theme</button>
+      <ColorPicker hideInput={['rgb', 'hsv']} color={color} onChange={handleCus} />
       <main id="body" className={style.body}>
-        <div className={style.theme}>
-          <div className={`name-${theme}`}>123</div>
-          <div className={`test-${theme}`}>456</div>
-        </div>
+        {
+          [
+            1,
+            2,
+            3,
+          ].map((item, _index) => (
+            <div className={`${style.theme} ${item}`}>
+              item
+              {item}
+            </div>
+          ))
+        }
         <Outlet />
       </main>
     </div>
