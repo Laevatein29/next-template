@@ -1,3 +1,3 @@
 import { layouts } from '@/layouts'
 
-export default layouts.WelcomeLayout
+export default layouts.LoginLayout

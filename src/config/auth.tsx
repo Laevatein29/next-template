@@ -3,9 +3,9 @@
 import { Navigate, useLocation } from 'react-router-dom'
 import type { Path } from '../router'
 
-const PRIVATE: Path[] = ['/home']
+const PRIVATE: Path[] = ['/']
 
-const PUBLIC: Path[] = ['/']
+const PUBLIC: Path[] = ['/login']
 
 export function Redirects({ children }: { children: React.ReactNode }) {
   const location = useLocation()
@@ -25,9 +25,9 @@ export function Redirects({ children }: { children: React.ReactNode }) {
   console.log(unAuthenticatedOnPrivatePath)
 
   if (authenticatedOnPublicPath)
-    return <Navigate to="/home" replace />
-  if (unAuthenticatedOnPrivatePath)
     return <Navigate to="/" replace />
+  if (unAuthenticatedOnPrivatePath)
+    return <Navigate to="/login" replace />
 
   //
   return children

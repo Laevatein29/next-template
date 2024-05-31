@@ -7,7 +7,6 @@ import { scripts } from './src/scripts'
 const { generateCode } = scripts
 
 export default defineConfig({
-
   plugins: [
     react(),
     generouted(),

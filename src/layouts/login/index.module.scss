@@ -1,0 +1,18 @@
+.container {
+
+  height: 100vh;
+  @include flexC;
+
+  .header {
+    // background: getPrimary(100);
+    width: 100%;
+  }
+
+  .body {
+    width: 100%;
+
+    .theme {
+      color: $color-pr;
+    }
+  }
+}

@@ -1,7 +1,7 @@
-import WelcomeLayout from './welcome'
+import LoginLayout from './login'
 import DefaultLayout from './default'
 
 export const layouts = {
-  WelcomeLayout,
+  LoginLayout,
   DefaultLayout,
 }

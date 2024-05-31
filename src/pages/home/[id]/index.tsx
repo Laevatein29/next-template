@@ -5,7 +5,6 @@ import { useParams, useSearchParams } from 'react-router-dom'
 export default function Id() {
   const { id } = useParams()
 
-  // console.log(TestRouters)
   console.log(routes)
   console.log(id)
   const [query] = useSearchParams()

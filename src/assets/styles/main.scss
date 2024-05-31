@@ -1,6 +1,6 @@
-
 @import "./_mixin.scss";
 @import "./_variables.scss";
+
 html {
   width: 100%;
   margin: 0;
@@ -21,12 +21,39 @@ body {
   }
 
   overflow-y: scroll;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-family: -apple-system,
+  BlinkMacSystemFont,
+  "Segoe UI",
+  Roboto,
+  Oxygen-Sans,
+  Ubuntu,
+  Cantarell,
+  "Helvetica Neue",
+  sans-serif;
   overflow: overlay;
 }
 
 * {
+
+  // [data-theme='dark'] {
+  //   --color-pr: #fff;
+  // }
+  //
+  // [data-theme='light'] {
+  //   --color-pr: #000;
+  // }
+
+  $color-pr: var(--color-pr);
+
+  @function colorGenerator($origin, $basic, $percent) {
+    @return mix($origin, $basic, ($percent ));
+  }
+
+  @function getPrimary($percent) {
+    @return colorGenerator(#000, var(--color-pr), $percent)
+  }
+
+
   box-sizing: border-box;
   scroll-behavior: smooth;
   scrollbar-width: thin;
@@ -59,16 +86,18 @@ body {
 
 // 移除触摸 color
 @include phone() {
+
   button,
   div,
   a {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     -webkit-tap-highlight-color: transparent;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+    @include prefix (select, none, moz ms mhtml webkit);
+    // -webkit-user-select: none;
+    // -khtml-user-select: none;
+    // -moz-user-select: none;
+    // -ms-user-select: none;
+    // user-select: none;
   }
 }
 
