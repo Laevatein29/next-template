@@ -36,6 +36,7 @@
   "include": [
     "src"
   ],
+  "exclude": ["./src/scripts/**/*.ts"],
   "references": [
     {
       "path": "./tsconfig.node.json"
