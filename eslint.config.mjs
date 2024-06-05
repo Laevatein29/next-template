@@ -3,7 +3,10 @@ import config from '@antfu/eslint-config'
 const arrayNewlineRules = ['error', { minItems: 3, multiline: true }]
 
 export default config({
+  'react': true,
+  'typescript': true,
   'rules': {
+
     'no-console': 'off',
     'padding-line-between-statements': [
       'error',

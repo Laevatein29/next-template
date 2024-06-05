@@ -1,6 +1,10 @@
+import style from './index.module.scss'
+import ColorSwitcher from '@/components/switches/color-switch'
+
 export default function Header() {
   return (
-    <div>
+    <div className={style.container}>
+      <ColorSwitcher />
       header
     </div>
   )

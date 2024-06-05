@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { routes } from '@generouted/react-router'
 import { RouterProvider, createHashRouter } from 'react-router-dom'
+import '../i18n'
 
 const router = createHashRouter(routes)
 

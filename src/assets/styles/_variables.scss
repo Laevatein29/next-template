@@ -22,11 +22,9 @@
 
 $color-pr: var(--color-pr);
 
-@function getPrimary($basic, $percent) {
-  @return color-mix(in srgb, $basic $percent * 10%, white);
+@function getPrimary($percent) {
+  @return color-mix(in srgb, $color-pr $percent * 10%, white);
 }
-
-$initialPr: getPrimary($color-pr, 10);
 
 $primary: #368c72;
 $heavyPrimary: #12682b;
