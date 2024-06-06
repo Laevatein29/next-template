@@ -28,15 +28,18 @@ export default function ColorSwitcher() {
 
   return (
     <div className={style.container}>
-      <button type="button" onClick={handleClick}>switcher</button>
+      <button
+        type="button"
+        onClick={handleClick}
+      >
+        switcher
+
+      </button>
       {
         visible
-          ? (
-
-            <ColorPicker hideInput={['rgb', 'hsv']} color={color} onChange={handleChange} />
-            )
+          ? (<ColorPicker hideInput={['rgb', 'hsv']} color={color} onChange={handleChange} />)
           : (<div>123</div>)
-}
+      }
     </div>
   )
 }
