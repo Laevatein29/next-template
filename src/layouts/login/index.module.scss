@@ -1,5 +1,4 @@
 .container {
-
   height: 100vh;
   @include flexC;
 
@@ -10,13 +9,10 @@
   .body {
     width: 100%;
 
-    .theme {
-      color: $primary;
-    }
-
     @for $index from 1 through 10 {
-      :nth-child(#{$index}) {
-        background: getPrimary($index);
+      div.theme--#{$index} {
+        color: getPrimary($index);
+        background: getColor($index, $color-pr, black);
       }
     }
   }

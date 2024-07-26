@@ -21,13 +21,19 @@ export default function App() {
   }
 
   return (
-    <ThemeContext.Provider value={{ theme, setTheme }}>
+    <ThemeContext.Provider
+      value={{
+        theme,
+        setTheme,
+      }}
+    >
       <div
         style={dynamicStyle}
       >
         {
           t('home.title')
         }
+
         <Redirects>
           <Outlet />
         </Redirects>

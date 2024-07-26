@@ -6,7 +6,13 @@ import '../i18n'
 
 const router = createHashRouter(routes)
 
-const Routes = () => <RouterProvider router={router} />
+function Routes() {
+  return (
+    <RouterProvider
+      router={router}
+    />
+  )
+}
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

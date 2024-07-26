@@ -1,3 +1,8 @@
+//
+// @filename - generate.ts
+// @authored-by - laevatein29 <liyongchen29@gmail.com>
+// @date - 2024-07-15
+//
 import path from 'node:path'
 import fs from 'node:fs'
 import type { GenerateConfig, PathConfig } from './types'
@@ -27,10 +32,12 @@ export function generator(file: string, config: GenerateConfig) {
 
     if (file.includes(path.normalize(dir.path))) {
       console.log('include')
+
       generateComponentCode({
         sourcePath: config.sourcePath,
         componentPath: dir.path,
       })
+
       return
     }
     else {
@@ -49,7 +56,8 @@ export async function generateComponentCode(config: PathConfig) {
   try {
     const files = await fs.promises.readdir(sourceDirPath)
 
-    const components: { [key: string]: string } = {}
+    const components: { [key: string]: string } = {
+    }
 
     for (const file of files) {
       const componentName = file

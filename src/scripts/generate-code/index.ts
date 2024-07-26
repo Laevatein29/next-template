@@ -20,7 +20,9 @@ export default function GenerateCode(config: GenerateConfig = defaultGenerateCon
     name: 'generate-code',
     configureServer(server) {
       server.watcher.on('add', listener)
+
       server.watcher.on('change', listener)
+
       server.watcher.on('unlink', listener)
     },
     buildStart(): Promise<void> {

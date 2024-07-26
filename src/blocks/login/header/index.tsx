@@ -3,9 +3,11 @@ import ColorSwitcher from '@/components/switches/color-switch'
 
 export default function Header() {
   return (
-    <div className={style.container}>
+    <div
+      className={style.container}
+    >
       <ColorSwitcher />
-      header
+      Header
     </div>
   )
 }

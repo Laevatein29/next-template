@@ -10,7 +10,7 @@ export default function ColorSwitcher() {
 
   const { theme, setTheme } = useContext(ThemeContext)
 
-  console.log('theme', theme)
+  const test = '123'
 
   const handleClick = () => {
     setVisible(visible => !visible)
@@ -20,26 +20,43 @@ export default function ColorSwitcher() {
 
   const handleChange = (e: IColor) => {
     console.log('e', e)
+
     setTheme(e.hex)
+
     setColor(e)
   }
+
+  console.log(theme)
+
+  console.log(test)
 
   console.log('visible', visible)
 
   return (
-    <div className={style.container}>
+    <div
+      className={style.container}
+    >
       <button
         type="button"
         onClick={handleClick}
       >
         switcher
-
       </button>
-      {
-        visible
-          ? (<ColorPicker hideInput={['rgb', 'hsv']} color={color} onChange={handleChange} />)
-          : (<div>123</div>)
-      }
+
+      {visible
+        ? (
+          <ColorPicker
+            hideInput={['rgb', 'hsv']}
+            color={color}
+            onChange={handleChange}
+          />
+          )
+        : (
+          <ColorPicker
+            color={color}
+            onChange={handleChange}
+          />
+          )}
     </div>
   )
 }

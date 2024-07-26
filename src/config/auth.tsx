@@ -1,5 +1,3 @@
-// src/config/redirects.tsx
-
 import { Navigate, useLocation } from 'react-router-dom'
 import type { Path } from '../router'
 
@@ -24,10 +22,23 @@ export function Redirects({ children }: { children: React.ReactNode }) {
 
   console.log(unAuthenticatedOnPrivatePath)
 
-  if (authenticatedOnPublicPath)
-    return <Navigate to="/" replace />
-  if (unAuthenticatedOnPrivatePath)
-    return <Navigate to="/login" replace />
+  if (authenticatedOnPublicPath) {
+    return (
+      <Navigate
+        to="/"
+        replace
+      />
+    )
+  }
+
+  if (unAuthenticatedOnPrivatePath) {
+    return (
+      <Navigate
+        to="/login"
+        replace
+      />
+    )
+  }
 
   //
   return children

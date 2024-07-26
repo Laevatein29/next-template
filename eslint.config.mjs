@@ -11,7 +11,28 @@ const arrayNewlineRules = [
 export default config({
   'rules': {
     'style/jsx-curly-newline': ['error', 'consistent'],
-    'style/jsx-closing-tag-location': 1,
+    'style/jsx-first-prop-new-line': [2, 'always'],
+    'style/jsx-closing-tag-location': 2,
+    'style/jsx-wrap-multilines': [
+      'error',
+      {
+        declaration: 'parens-new-line',
+        assignment: 'parens-new-line',
+        return: 'parens-new-line',
+        arrow: 'parens-new-line',
+        condition: 'ignore',
+        logical: 'ignore',
+        prop: 'ignore',
+
+      },
+    ],
+    'style/jsx-newline': [
+      'error',
+      {
+        prevent: false,
+      },
+    ],
+    'style/jsx-function-call-newline': 'error',
     'object-curly-newline': [
       'error',
       {
@@ -36,6 +57,8 @@ export default config({
       {
         blankLine: 'always',
         prev: [
+          'function',
+          'expression',
           'const',
           'let',
           'var',
