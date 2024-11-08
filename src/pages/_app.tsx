@@ -1,23 +1,24 @@
 import { Outlet } from 'react-router-dom'
-import { useState } from 'react'
-import { useTranslation } from 'react-i18next'
 import { Redirects } from '@/config/auth'
+import type { ThemeColors } from '@/contexts/theme-context'
 import { ThemeContext } from '@/contexts/theme-context'
 
 export default function App() {
-  // const isBrowserDefaultDark = () => window.matchMedia('(prefer-color-scheme: dark)').matches
-  const [theme, setTheme] = useState('light')
+  const isBrowserDefaultDark = () => window.matchMedia('(prefer-color-scheme: dark)').matches
 
-  const { t } = useTranslation()
+  const [theme, setTheme] = useState<ThemeColors>('white')
 
-  console.log('theme', theme)
-  const scheme: any = {
+  useEffect(() => {
+    setTheme(isBrowserDefaultDark() ? 'black' : 'white')
+  }, [])
+
+  const scheme: Record<string, string> = {
     dark: 'black',
     light: 'white',
   }
 
   const dynamicStyle: any = {
-    '--color-pr': ['light', 'dark'].includes(theme) ? scheme[theme] : theme,
+    '--color-pr': scheme[theme] || theme,
   }
 
   return (
@@ -30,10 +31,6 @@ export default function App() {
       <div
         style={dynamicStyle}
       >
-        {
-          t('home.title')
-        }
-
         <Redirects>
           <Outlet />
         </Redirects>

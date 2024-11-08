@@ -10,10 +10,14 @@
     width: 100%;
 
     @for $index from 1 through 10 {
-      div.theme--#{$index} {
+      .theme--#{$index} {
         color: getPrimary($index);
         background: getColor($index, $color-pr, black);
       }
     }
   }
+}
+
+.input {
+  caret-color: red;
 }

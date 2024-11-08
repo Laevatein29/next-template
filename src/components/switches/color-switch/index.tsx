@@ -10,8 +10,6 @@ export default function ColorSwitcher() {
 
   const { theme, setTheme } = useContext(ThemeContext)
 
-  const test = '123'
-
   const handleClick = () => {
     setVisible(visible => !visible)
   }
@@ -19,16 +17,12 @@ export default function ColorSwitcher() {
   const [color, setColor] = useColor('rbg(86 30 202)')
 
   const handleChange = (e: IColor) => {
-    console.log('e', e)
-
     setTheme(e.hex)
 
     setColor(e)
   }
 
   console.log(theme)
-
-  console.log(test)
 
   console.log('visible', visible)
 

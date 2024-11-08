@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react'
 import { useRef, useState } from 'react'
 import style from './index.module.scss'
 
@@ -5,6 +6,7 @@ interface BasicButtonProps {
   onClick?: () => void
   label: string
   visible?: boolean
+  children?: ReactNode
 }
 
 export default function BasicButton(props: BasicButtonProps) {
